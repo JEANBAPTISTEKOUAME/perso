@@ -298,34 +298,62 @@ var graphiqueGauche = new Chart(ctxGauche, {
 // Pour le graphique de la colonne droite (vous pouvez changer le type et les données selon vos besoins)
 var ctxDroite = document.getElementById("graphiqueDroite").getContext("2d");
 var graphiqueDroite = new Chart(ctxDroite, {
-  // ... Même structure que ci-dessus, mais avec des données différentes
-});
-
-// Pour le graphique final
-var ctxFinal = document.getElementById("graphiqueFinal").getContext("2d");
-var graphiqueFinal = new Chart(ctxFinal, {
-  type: "bar",
+  type: "doughnut",
   data: {
-    labels: ["Jan", "Fev", "Mar", "Avr", "Mai"],
+    labels: ["Red", "Blue", "Yellow"],
     datasets: [
       {
-        label: "Graphique final",
-        data: [5, 9, 7, 8, 6],
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "rgba(54, 162, 235, 1)",
+        data: [300, 50, 100],
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+        ],
         borderWidth: 1,
       },
     ],
   },
   options: {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
+    responsive: true,
+  },
+});
+
+
+// Pour le graphique final
+var ctxFinal = document.getElementById("graphiqueFinal").getContext("2d");
+var graphiqueFinal = new Chart(ctxFinal, {
+  type: "bubble",
+  data: {
+    datasets: [
+      {
+        label: "First Dataset",
+        data: [
+          {
+            x: 20,
+            y: 30,
+            r: 15,
           },
-        },
-      ],
+          {
+            x: 40,
+            y: 10,
+            r: 10,
+          },
+        ],
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgba(255, 99, 132, 1)",
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      x: { beginAtZero: true },
+      y: { beginAtZero: true },
     },
   },
 });

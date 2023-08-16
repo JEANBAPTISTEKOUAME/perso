@@ -46,3 +46,16 @@ select {
 #footer {
     flex-shrink: 0;
 }
+
+#key-figures {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.figure {
+    width: 30%;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
