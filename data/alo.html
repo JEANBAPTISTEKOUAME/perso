@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .sticky-header {
+        background-color: #333;
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .sticky-header nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+      }
+
+      .sticky-header nav ul li {
+        margin: 0 15px;
+      }
+
+      .sticky-header nav ul li a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .content {
+        padding: 20px;
+      }
+    </style>
+    <title>Sticky Header Example</title>
+  </head>
+  <body>
+    <header class="sticky-header">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <!-- Le contenu de la page se trouve ici -->
+    </div>
+    <script>
+      const header = document.querySelector(".sticky-header");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 0) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>

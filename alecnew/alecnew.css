@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    -webkit-text-size-adjust: none;
+}
+
+#menu-gauche {
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 100%;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#carte {
+    width: 100%;
+    height: 100%;
+    /* ajusté pour tenir compte du footer */
+}
+
+#footer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    flex-shrink: 0;
+}
+
+.content,
+#footer {
+    flex-shrink: 0;
+}

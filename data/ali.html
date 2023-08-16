@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Selection de Graphiques avec Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <canvas id="monGraphique"></canvas>
+    <select id="selecteurGraphique">
+      <option value="graphique1">Graphique 1</option>
+      <option value="graphique2">Graphique 2</option>
+    </select>
+
+    <script>
+      const ctx = document.getElementById("monGraphique").getContext("2d");
+
+      const data1 = {
+        labels: ["Jan", "Fev", "Mar", "Avr", "Mai"],
+        datasets: [
+          {
+            label: "Ventes",
+            data: [10, 20, 30, 40, 50],
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+          },
+        ],
+      };
+
+      const data2 = {
+        labels: ["Jan", "Fev", "Mar", "Avr", "Mai"],
+        datasets: [
+          {
+            label: "Achats",
+            data: [5, 15, 25, 35, 45],
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 1,
+          },
+        ],
+      };
+
+      const config1 = {
+        type: "bar",
+        data: data1,
+      };
+
+      const config2 = {
+        type: "line",
+        data: data2,
+      };
+
+      let monChart = new Chart(ctx, config1);
+
+      function changerGraphique(config) {
+        if (monChart) {
+          monChart.destroy();
+        }
+        monChart = new Chart(ctx, config);
+      }
+
+      // Écouteur d'événement pour le sélecteur
+      document
+        .getElementById("selecteurGraphique")
+        .addEventListener("change", function (e) {
+          switch (e.target.value) {
+            case "graphique1":
+              changerGraphique(config1);
+              break;
+            case "graphique2":
+              changerGraphique(config2);
+              break;
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Observatoire de la Rénovation Énergétique</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@2.1.1/dist/maplibre-gl.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.css" />
+    <link rel="stylesheet" href="./alecnew.css" />
+  </head>
+  <body>
+    <header class="bg-primary text-white text-center p-3">
+      OBSERVATOIRE DE LA RÉNOVATION ÉNERGETIQUE DU PAYS DE RENNES
+    </header>
+    <div style="flex-grow: 1; display: flex">
+      <div class id="menu-gauche">
+        <label for="epci-select">EPCI</label> <br />
+        <select id="epci-select" style="width: 100%">
+          <option value="PAYS DE RENNES">PAYS DE RENNES</option>
+          <!-- Ajoutez vos options ici --></select
+        ><br />
+        <label for="batiment">Choix du Ratio </label><br />
+        <ul id="batiment" style="width: 100%">
+          <li>
+            <input type="checkbox" name="commune" value="commune2" /> conso/hbt
+          </li>
+          <!-- Ajoutez autant d'options que nécessaire -->
+        </ul>
+
+        <label for="commune-select">COMMUNE ADEHRENTE</label><br />
+        <select id="commune-select" multiple style="width: 100%">
+          <option value=""></option>
+        </select>
+        <label for="batiment-select">LISTE DES BÂTIMENTS</label><br />
+        <select id="batiment-select" multiple style="width: 100%">
+          <option value=""></option>
+        </select>
+        <label for="type-select">TYPES DE BÂTIMENTS</label><br />
+        <select id="type-select" style="width: 100%">
+          <option value=""></option>
+        </select>
+
+        <label for="renovation-select">RENOVATION</label><br />
+        <select id="renovation-select" style="width: 100%">
+          <option value=""></option>
+        </select>
+        <!-- Ajoutez vos options ici -->
+      </div>
+
+      <div id="carte"></div>
+      <div id="legend"></div>
+
+      <div id="menu-droit" class="container mt-4">
+        <!-- Section pour les chiffres clés -->
+        <div class="chiffres-cles text-center mb-4">
+          <h3>CHIFFRES CLES</h3>
+        </div>
+
+        <!-- Section avec deux colonnes pour les graphiques -->
+        <div class="row graphiques mb-4">
+          <div class="col-md-6">
+            <!-- Contenu de la colonne gauche: Canvas pour le graphique Chart.js -->
+            <canvas id="graphiqueGauche"></canvas>
+            <button id="exporterBtnSecond" class="btn btn-primary">
+              Exporter
+            </button>
+          </div>
+          <div class="col-md-6">
+            <!-- Contenu de la colonne droite: Canvas pour le graphique Chart.js -->
+            <canvas id="graphiqueDroite"></canvas>
+          </div>
+        </div>
+
+        <!-- Section (colonne) sous les deux autres niveaux -->
+        <!-- Section (colonne) sous les deux autres niveaux -->
+        <div class="derniere-colonne mt-4">
+          <!-- Contenu de la dernière colonne: Canvas pour le graphique Chart.js -->
+          <canvas
+            id="graphiqueFinal"
+            class="classe-graphique-final rounded border border-secondary p-2"></canvas>
+          <button id="exporterBtn" class="btn btn-primary">Exporter</button>
+        </div>
+      </div>
+    </div>
+    <div id="footer">Contact</div>
+
+    <!-- lien externe intégré à l'application-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@2.1.1/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <script src="https://js.sentry-cdn.com/9c5feb5b248b49f79a585804c259febc.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script>
+    <script src="./alecnew.js"></script>
+  </body>
+</html>
