@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Observatoire de la Rénovation Énergétique</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@2.1.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.css" />
+  <link rel="stylesheet" href="./alecnew.css" />
+</head>
+
+<body>
+
+  <body>
+    <div class="container">
+      <header>
+       
+          <div class="nav-right">
+            <h1>OBSERVATOIRE DE LA RÉNOVATION ÉNERGETIQUE DU PAYS DE RENNES</h1>
+          </div>
+        
+
+        
+      </header>
+      <div class="main">
+        <div class="left">
+          <div class="left-top">
+            <div id="container2">
+              <!-- Paramétrage du bouton de sélection des EPCI -->
+              <div class="button-container">
+                <button id="btn-choix5">EPCI</button>
+                <label></label>
+              </div>
+              <!-- Une div pour la liste déroulante qui ne sera pas affichée par défaut -->
+              <div id="liste-container5" style="display:none">
+                <!-- Une liste déroulante permettant de sélectionner plusieurs EPCI en même temps(à supprimer plus tard, je ne vois pas l'utilité) -->
+                <select id="liste-choix5">
+                </select>
+              </div>
+
+
+              <!-- Paramétrage du bouton de sélection des communes -->
+
+              <div class="button-container">
+                <button id="btn-choix">COMMUNES</button>
+                <label>
+                </label>
+              </div>
+              <!-- Une div pour la liste déroulante qui ne sera pas affichée par défaut -->
+              <div id="liste-container" style="display:none">
+                <!-- Une liste déroulante permettant de sélectionner plusieurs communes en même temps -->
+                <select id="liste-choix" multiple>
+                </select>
+              </div>
+
+
+              <!-- Paramétrage du bouton de sélection du type de bâtiment -->
+
+              <div class="button-container">
+                <button id="btn-choix2">TYPE DE BÂTIMENT</button>
+                <!-- Une div pour la liste déroulante qui ne sera pas affichée par défaut -->
+              </div>
+              <div id="liste-container2" style="display:none">
+                <!-- Une liste déroulante permettant de sélectionner plusieurs types de bâtiments en même temps -->
+                <select id="liste-choix2" multiple>
+                </select>
+              </div>
+
+
+              <!-- Paramétrage du bouton de sélection de l'état de rénovation -->
+
+              <div class="button-container">
+                <button id="btn-choix4">RENOVATION ENERGETIQUE</button>
+                <!-- Une div pour la liste déroulante qui ne sera pas affichée par défaut -->
+              </div>
+              <div id="liste-container4" style="display:none">
+                <!-- Une liste déroulante permettant de sélectionner plusieurs types d'énergie en même temps -->
+                <select id="liste-choix4" multiple>
+                </select>
+              </div>
+
+
+              <!-- Un menu qui récapitule toutes les sélections en cours sur la page ( à voir, supprimer plus tard) -->
+              <div id="selections-container">
+                <h4>VOTRE SELECTION EN COURS</h4>
+                <ul id="selections-epci"></ul>
+                <ul id="selections-com"></ul>
+                <ul id="selections-bat"></ul>
+                <ul id="selections-combat"></ul>
+                <ul id="selections-renov"></ul>
+                <div id="selections-liste">
+                  <ul id="selections-bati-label"></ul>
+                </div>
+              </div>
+
+
+
+              <!--- Un bouton pour mettre à jour les graphiques apèrs avoir effectué des selections -->
+              <div class="bouton-contenair">
+                <button id="updateChartButton">ACTUALISER LES GRAPHIQUES</button>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+          <div class="left-bottom">
+            <div id="container2">
+              <!-- Une div pour les chiffres clés -->
+              <div id="chiffres">
+                <!-- Une div pour les consommations -->
+                <div id="conso">
+                  <h1>Consommation totale des bâtiments</h1>
+                  <!-- L'affichage des données de consommation -->
+                  <div id="chiffresconso"></div>
+                </div>
+                <!-- Une div pour les dépenses -->
+                <div id="depenses">
+                  <h1>Dépense totale des bâtiments</h1>
+                  <br></br>
+                  <!-- L'affichage des données de dépense -->
+                  <div id="chiffresdep"></div>
+                  
+                </div>
+              </div>
+              <div class="rangeSlider-container">
+                <!-- Un input de type texte pour sélectionner les années -->
+                <input type="text" id="rangeSlider3" class="rangeSlider" value="veillez patienter" />
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+        <div class="center">
+          <div class="center-top">
+            <div class="center-top-left">
+              <div id="map">
+                <div id="map-loader" class="map-loader">
+                  <p>Chargement de la carte...</p>
+                </div>
+                
+          
+                <div id="chartLegend"></div>
+                <div id="legendcommune" style="position: absolute; bottom: 30px; left: 30px; background-color: white; padding: 10px;">
+                  <!-- La légende sera insérée ici -->
+                </div>
+              </div>
+
+            </div>
+            <div class="center-top-right">
+              <div id="sidebar">
+                <!-- En tête avec le titre -->
+                <div id="heading">
+                  <h4> Principaux bâtiments</h4>
+                </div>
+                <!-- Liste pour afficher les bâtiments et leur commune -->
+                <select id="listings" class="listings" <option> </option>
+                </select>
+                <div>
+                  <!-- Bouton de désélection des bâtiments (tous sélectionnés par défaut, bug) -->
+                  <button id="deselect-all">Tout déselectionné</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="center-bottom">
+            <div class="center-bottom-left">
+                  <!-- Une div pour le deuxième graphique -->
+                  <div class id="graphique2">
+                    <h2 class="titre">Outil de priorisation des bâtiments</h2>
+            <p class="sous-titre">L'axe X représente la consommation moyenne en kWh</p>
+            <p class="sous-titre">L'axe Y représente la consommation moyenne par surface en kWh/m²</p>
+            <p class="description">La taille des bulles varie en fonction de la dépense moyenne par surface en €/m²</p>
+        
+                     <!-- Une div pour afficher le deuxième graphique -->
+                     <div class="graphique">
+                      <!-- Une balise canvas pour afficher le deuxième graphique -->
+                      <canvas id="myChart2"></canvas>
+                      <!-- Un input de type texte pour sélectionner les années -->
+                      <input type="text" id="rangeSlider1" class="rangeSlider" value="Veillez patienter" />
+                    </div>
+                  </div>
+             
+
+
+
+
+
+
+
+
+
+          </div>
+          <div class="center-bottom-right">
+            <div id="container5">
+          <!-- Une div pour le premier graphique -->
+          <div class id="graphique1">
+            <h3>Consommation et dépense d'énergie par année et par type d'énergie</h3>
+  <br><br/>
+        <!-- Une balise canvas pour afficher le premier graphique -->
+        <div class="graph-container1">
+          <canvas id="myChart" style="display: block;width: 100%;height: 50%;" width="100%" height="50%" class="chartjs-render-monitor"></canvas>
+                <!--Div pour afficher la légende des barres -->
+          <div class="legend-container">
+         <div id="barLegend"></div>
+    <!-- Div pour afficher la légende des lignes -->
+    <div id="lineLegend"></div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+                        
+         
+      </div>
+        </div>
+        <div class="right">
+          <div class="right-top">
+              <!-- Une div pour le troisième graphique -->
+
+              <div class id="graphique3">
+                <h3>Répartition des consommations <br>et des dépenses par type d'énergie</h3>
+                  <!-- Un bouton pour sélectionner le graphique de consommation (par défaut) -->
+                  <div class="button-container-donut"> 
+                  <button id="consommationBtn">Conso</button>
+                  <!-- Un bouton pour sélectionner le graphique de dépenses -->
+                  <button id="depenseBtn">Dépense</button>
+                </div>
+                </div>
+                <!-- Une div pour afficher le troisième graphique -->
+                <div class="graphique">
+                  <!-- Une balise canvas pour afficher le troisième graphique -->
+                  <canvas id="myChart3"></canvas>
+                </div>
+                <div class="rangeSlider-container">
+                  <!-- Un input de type texte pour sélectionner les années -->
+                  <input type="text" id="rangeSlider2" class="rangeSlider" value="veillez patienter" />
+               
+              </div>
+
+
+          </div>
+          <div class="right-bottom">
+            <div id="container2">
+              <!-- Une div pour les chiffres clés co2 -->
+              <div id="chiffres2">
+                <!-- Une div pour les consommations -->
+                <div id="conso2">
+                  <h1>Ratio Consos/surface</h1>
+                  <br />
+                  <!-- L'affichage des données de consommation -->
+                  <div id="chiffresconsco2"></div>
+                </div>
+                <!-- Une div pour les dépenses/surface -->
+                <div id="depenses2">
+                  <h1>Ratio Dépense/surface</h1>
+                  <br />
+                  <!-- L'affichage des données de dépense -->
+                  <div id="chiffresdep2"></div>
+                </div>
+                <div id="totalCO2">
+                  <h1>Émission de CO2</h1>
+                  <br />
+                  <!-- L'affichage des données de dépense -->
+                  <div id="chiffresco2"></div>
+                  <div id="rangeSlider3">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+         
+      </footer>
+    </div>
+
+    <!-- lien externe intégré à l'application-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@2.1.1/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <script src="https://js.sentry-cdn.com/9c5feb5b248b49f79a585804c259febc.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script>
+    <script src="./alecnew.js"></script>
+  </body>
+
+</html>

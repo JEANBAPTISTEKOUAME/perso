@@ -1,0 +1,761 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #d3d5d6;
+    color: #555;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 96%;
+    margin: auto;
+}
+
+
+header {
+    /*background: #50b3a2;*/
+    background-color: #14304e;
+    color: white;
+    text-align: center;
+    padding: 0.5em 0;
+    flex-shrink: 0;
+    height: 8%;;
+    
+    
+}
+
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.main > div {
+    background: white;
+   
+    display: flex;
+    flex-direction: column;
+}
+
+.left, .right {
+    flex: 0.5;
+}
+
+.left-top, .left-bottom, .right-top, .right-bottom {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5em;
+    border-bottom: 1px solid #ccc; /* Adding border */
+    position: relative;
+}
+/* position du contenant du menu droit*/
+#container2{
+    position: relative;
+    top: 5px;
+    width: 90%;
+    left: 10px;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+  
+}
+/* position du contenant du menu droit*/
+#container1{
+    position: relative;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+/* position du contenant du center-bottom*/
+#container5{
+    position: relative;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 1px;
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* position du contenant du menu GAUCHE*/
+#containerlf{
+    position: absolute;
+    top: 5px;
+    width: 90%;
+    left: 10px;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+}
+#liste-container{
+    overflow-y: scroll;
+}
+
+.left-bottom, .right-bottom {
+    border-top: 1px solid #ccc; /* Adding border */
+}
+
+.center {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.center-top {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.center-top-left {
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    border-right: 1px solid #ccc;
+    position: relative; /* Ajouté pour positionner la carte par rapport à ce conteneur */
+    height: 100%; /* Ajouté pour s'assurer que le conteneur occupe toute la hauteur disponible */
+   
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.center-top-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.1em;
+   
+  background-color: #fff;
+  position:;
+ 
+  
+
+}
+
+
+
+.center-bottom {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*padding: 1em;*/
+    border-top: 1px solid #ccc;
+}
+
+.center-bottom-left, .center-bottom-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    position: relative;
+}
+
+.center-bottom-right {
+    border-left: 1px solid #ccc; /* Added to have a border between the two sections */
+    border-left: 1px solid #ccc; /* Border between left and right */
+    overflow: auto; /* To handle overflow */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+}
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background: #14304e;
+    color: white;
+    flex-shrink: 0;
+}
+
+
+
+/* style des bouton*
+
+/* Style général des boutons */
+button {
+    background-color: #14304e;
+    /* Couleur de fond bleue */
+    color: white;
+    /* Couleur du texte blanche */
+    border: none;
+    /* Pas de bordure */
+    padding: 10px 20px;
+    /* Espacement interne */
+    text-align: center;
+    /* Centrage du texte */
+    text-decoration: none;
+    /* Pas de soulignement */
+    display: block;
+    /* Affichage en ligne */
+    font-size: 16px;
+    /* Taille de la police */
+    margin: 4px 2px;
+    /* Marges externes */
+    cursor: pointer;
+    /* Curseur en forme de main */
+    border-radius: 5px;
+    /* Bords arrondis */
+    transition: background-color 0.3s;
+    /* Transition en douceur */
+    width: 100%;
+  }
+
+
+  
+/* Définit la couleur de texte du bouton lorsqu'il est survolé */
+button:hover {
+    color: #000000;
+    z-index: 9000;
+  }
+  
+  /* Définit la couleur de fond du premier bouton lorsqu'il est survolé */
+  button:hover:first-child {
+    background: #e0e0e0;
+    z-index: 9000;
+  }
+  
+  /* Définit la couleur de fond du dernier bouton lorsqu'il est survolé */
+  button:hover:last-child {
+    background:#e0e0e0;
+    z-index: 9000;
+  }
+  .button-container {
+    margin-bottom: 5px;
+    z-index: 1000;
+  
+  }
+
+  /* Style du conteneur des sélections en cours */
+#selections-container {
+    /* Dimensionnement */
+    max-height:min-content; /* Hauteur maximale, ajustez selon vos besoins */
+  
+    /* Comportement du contenu */
+    overflow-y:scroll; /* Défilement vertical automatique si le contenu dépasse */
+    
+    /* Apparence */
+    background-color: #fbfbfb; /* Couleur de fond légèrement bleutée */
+    padding: 15px;  /* Espacement interne */
+    border-radius: 5px; /* Bords arrondis */
+    border: 1px solid #818181; /* Bordure bleue */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Ombre douce */
+
+  }
+  
+  
+  #selections-container h4 {
+    color: #0d233ac0;
+    text-align: center;
+    /* Couleur de titre bleue */
+    margin-bottom: 20px;
+    /* Marge sous le titre */
+  }
+  
+  #selections-container ul {
+    list-style-type: none;
+    /* Pas de puces */
+    padding: 0;
+    /* Pas d'espacement interne */
+  }
+  
+  #selections-container li {
+    padding: 5px;
+    /* Espacement interne des éléments de liste */
+    margin: 5px 0;
+    /* Marge entre les éléments de liste */
+    border: 1px solid #c5cfd9;
+    /* Bordure bleue */
+    border-radius: 5px;
+    /* Bords arrondis */
+    color: #060e3d;
+    /* Texte bleu */
+  }
+
+  
+/* Paramétrage de l'en-tête de la sidebar */
+#heading {
+    /* Bordures et arrondis */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-radius: 10px 10px 0px 0px;
+  
+    /* Dimensionnement et alignement du texte */
+    min-height:auto;
+    line-height:normal;
+    padding: 0 10px;
+    text-align: center;
+  
+    /* Couleurs et fond */
+    background-color: #d8d9da;
+    color: #333030;
+  }
+
+  #sidebar {
+   position: relative;
+    top: 1%;
+    width: 90%;
+    max-height: max-content;
+    overflow-y: scroll;
+    background-color: rgb(242, 242, 242);
+   
+    border-radius: 10px;
+    z-index: 1;
+
+  }
+
+  
+
+/* Paramétrage de la liste */
+.listings {
+    position: relative;
+  text-align: center;
+    width: 100%;
+    max-height:400px;
+   overflow-y: scroll;
+  }
+  
+  /* Paramétrage des options de la liste */
+  #listings option {
+    text-align: left;
+    padding-left: 2px;
+    overflow-y: scroll;
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 5px ;
+    text-transform: capitalize;
+    -webkit-text-fill-color: #14304e;
+  }
+  
+  
+  /* Paramétrage des options des groupes de la liste */
+  #listings optgroup {
+
+    text-align: center;
+    border-bottom: 0px solid #5f2222;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    padding-left: 1px;
+    text-transform: uppercase;
+    text-shadow: #060e3d;
+  -webkit-text-fill-color:#060e3d
+  }
+  
+  /* Paramétrage de la barre déroulante */
+
+
+  
+/* Pop-ups informatives */
+.mapboxgl-popup-close-button {
+    display: none;
+  }
+  
+  .mapboxgl-popup-content {
+    padding: 0;
+    width: 180px;
+  }
+  
+  .mapboxgl-popup-content h3 {
+    background: #2f5388;
+    color: #e5e5e5;
+    margin: 0;
+    padding: 10px;
+    border-radius: 3px 3px 0 0;
+    font-weight: 700;
+    margin-top: -15px;
+  }
+  
+  .mapboxgl-popup-content h4 {
+    margin: 0;
+    padding: 10px;
+    font-weight: 400;
+  }
+  
+  .mapboxgl-popup-content div {
+    padding: 10px;
+  }
+  
+  .mapboxgl-popup-anchor-top>.mapboxgl-popup-content {
+    margin-top: 15px;
+  }
+  
+  .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
+    border-bottom-color: #91c949;
+  }
+  
+  /* Suppression des puces des sélections en cours */
+  ul#selections-com,
+  ul#selections-epci,
+  ul#selections-bat,
+  ul#selections-renov,
+  ul#selections-liste li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style des sélections en cours */
+  ul#selections-com li,
+  ul#selections-epci li,
+  ul#selections-bat li,
+  ul#selections-renov li,
+  ul#selections-liste li {
+    font-size: 16px;
+    line-height: 1;
+  }
+  
+
+  /* legende de la carte*/
+  
+#chartLegend {
+    max-width: 50%;
+    /* Fait en sorte que le conteneur ne dépasse pas la largeur de son parent */
+    max-height: 100%;
+    /* Fait en sorte que le conteneur ne dépasse pas la hauteur de son parent */
+    overflow: auto;
+    /* Si le contenu est trop grand, affichez des barres de défilement */
+    box-sizing: border-box;
+    /* Prend en compte les paddings et les bordures dans les dimensions du conteneur */
+  }
+  
+  #chartLegend ul {
+    list-style-type: none;
+    /* Supprime les puces */
+    padding-left: 0;
+    /* Supprime le padding à gauche */
+    margin: 0;
+    /* Supprime les marges pour éviter les décalages supplémentaires */
+  }
+  
+  #chartLegend li {
+    padding: 1px 0;
+    /* Ajoute un petit espacement entre les éléments de la liste pour une meilleure lisibilité */
+    display: flex;
+    /* Utilisation de Flexbox */
+    align-items: center;
+    /* Centrage vertical du contenu */
+    padding: 5px 0;
+  }
+  
+  
+  #chartLegend {
+    z-index: 99;
+    position: absolute;
+    bottom: 25px;
+    /* Marge du bas pour le positionnement */
+    right: 5px;
+    /* Marge de droite pour le positionnement */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Un fond légèrement transparent */
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    /* Une petite ombre pour la légende */
+  }
+
+
+
+
+
+
+  /* CONFIURATION DES CHIFFRE CLES*/
+  
+/* Style du bloc des chiffrs clés */
+#chiffres {
+    display: flex;
+    flex-direction: column;
+    height: 270px;
+    position: relative;
+    flex-direction: column;
+    max-height: 400px;
+    padding: 5px;
+    background-color: #fbfbfb;
+    border-radius: 10px;
+    border: 1px solid #818181;
+
+    overflow: hidden; /* Empêche le débordement des enfants */
+  }
+  
+  /* Style du titre des chiffres clés */
+  #chiffres h1, #chiffres2 h1  {
+    color: #0d233ac0;
+    text-align: center;
+    margin-bottom: 1px;
+    font-size: 1.2rem;
+    
+  }
+  
+  /* Style des divs individuelles pour la consommation, les dépenses et les émissions de CO2 */
+  #conso, #depenses {
+    flex-grow: 1;
+    margin: 2px 0;
+    padding: 2px;
+    border: 1px solid #c5cfd9;
+    border-radius: 10px;
+    text-align: center;
+    overflow: auto;
+  }
+  
+  /* Style du texte des chiffres clés */
+  #chiffresconso, #chiffresdep, #chiffres {
+    font-size: 1.1rem;
+    color: #060e3d;
+   
+  }
+
+  
+/* Style du conteneur des chiffres clés */
+#chiffres2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    padding: 5px;
+    background-color: #fbfbfb;
+    border-radius: 10px;
+    border: 1px solid #818181;
+
+    overflow: hidden; /* Empêche le débordement des enfants */
+  }
+  
+  
+  /* Style des divs individuelles pour la consommation, les dépenses et les émissions de CO2 */
+  #conso2, #depenses2, #totalCO2 {
+    flex-grow: 1;
+    margin: 2px 0;
+    padding: 2px;
+    border: 1px solid #c5cfd9;
+    border-radius: 10px;
+    text-align: center;
+    overflow: auto;
+  }
+  
+  /* Style du texte des chiffres clés */
+  #chiffresconsco2, #chiffresdep2, #chiffresco2 {
+    font-size: 1.1rem;
+    color: #060e3d;
+  }
+  
+/*style de la classe graphique*/
+  .graphique {
+    width: 100%; /* Full width of the parent */
+    overflow: hidden; /* Hide overflow */
+    
+}
+
+
+/* style du titre du graphique 3 et 1*/
+#graphique3 h3   {
+    color: #0d233ac0;
+    text-align: center;
+    margin-bottom: 1px;
+    font-size: 1.2rem;
+  }
+
+  /*style de la classe graphique1*/
+  .graphique1 {
+    width: 10%; /* Full width of the parent */
+    overflow: hidden; /* Hide overflow */
+    
+}
+  #graphique1 h3   {
+    color: #0d233ac0;
+    text-align: center;
+    margin-bottom: 1px;
+    font-size: 1.2rem;
+  }
+
+  /* bubble chart */
+  .titre {
+    font-size: 24px; 
+    color: #0d233ac0;
+    text-align: center;
+}
+
+.sous-titre {
+    font-size: 12px; 
+}
+
+.description {
+    font-size: 12px; 
+}
+
+/* Si vous voulez styp à l’intérieur de #graphique2 */
+#graphique2 h2 {
+    font-size: 1.2rem;
+    color: #0d233ac0;
+    text-align: center;
+}
+
+#graphique2 p {
+    font-size: 12px; 
+    text-align: center;
+}
+
+#graph-container1{
+    position:absolute;
+    width: 10%; /* Full width of the parent */
+    
+}
+#myChart{
+    position:absolute;
+    
+}
+
+
+
+canvas {
+    max-width: 100%; /* Limit the width to the parent width */
+}
+
+.rangeSlider-container {
+    width: 100%; /* Full width of the parent */
+}
+
+/* Style pour bouton sélectionné */
+.button-selected {
+    background-color: #808b4d; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+  }
+
+ 
+
+/* lende de la carte */
+
+#chartLegend {
+    max-width: 50%;
+    /* Fait en sorte que le conteneur ne dépasse pas la largeur de son parent */
+    max-height: 100%;
+    /* Fait en sorte que le conteneur ne dépasse pas la hauteur de son parent */
+    overflow: auto;
+    /* Si le contenu est trop grand, affichez des barres de défilement */
+    box-sizing: border-box;
+    /* Prend en compte les paddings et les bordures dans les dimensions du conteneur */
+  }
+  
+  #chartLegend ul {
+    list-style-type: none;
+    /* Supprime les puces */
+    padding-left: 0;
+    /* Supprime le padding à gauche */
+    margin: 0;
+    /* Supprime les marges pour éviter les décalages supplémentaires */
+  }
+  
+  #chartLegend li {
+    padding: 1px 0;
+    /* Ajoute un petit espacement entre les éléments de la liste pour une meilleure lisibilité */
+    display: flex;
+    /* Utilisation de Flexbox */
+    align-items: center;
+    /* Centrage vertical du contenu */
+    padding: 5px 0;
+  }
+  
+  
+  #chartLegend {
+    z-index: 99;
+    position: absolute;
+    bottom: 25px;
+    /* Marge du bas pour le positionnement */
+    right: 5px;
+    /* Marge de droite pour le positionnement */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Un fond légèrement transparent */
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    /* Une petite ombre pour la légende */
+  }
+  
+/* style legende des communes */
+#legendcommune {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background-color: white;
+    padding: 10px;
+    z-index: 9;
+    border-radius: 2;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .legend-item span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .legend-text {
+    /* Style pour le texte supplémentaire */
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+
+  
+/* couleur du range.slier*/
+
+.irs-bar {
+
+    /* Couleur d'arrière-plan intérieure */
+    border: 1px solid #9b9898c5 !important;
+  
+    /* Bordure */
+  }
+  
+  
+  .irs .irs-bar {
+    background: #f3efeff2 !important;
+  }
+  
+  
+  .irs .irs-single {
+    color: hsl(0, 0%, 100%) !important;
+    -webkit-text-fill-color: #ffffff;
+  }

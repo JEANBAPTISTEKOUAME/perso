@@ -1,0 +1,20 @@
+ID_BAT,CODE_COM,NOM_COM,NOM_BATI,ADRESSE,X,Y,SURFACE,RENOVATION,TYPE
+1,35001,Acigné,Mairie / Salle des Clouères,Place de la Mairie,-1.5340942242553002,48.13359429413169,1070,Oui,Administratif
+2,35001,Acigné,La Passerelle,Avenue Abbé Barbedet,-1.5374075547683625,48.13471444939851,6670,Non,Scolaire
+3,35001,Acigné,MAPA,Impasse des 4 saisons,-1.5394502252056679,48.13239015625861,1550,Non,Sanitaire
+4,35001,Acigné,Salle de sports de la lande Guérin,Rue des Verdaudais,-1.5336303630854378,48.13982400963904,3250,Non,Sportif
+5,35001,Acigné,Le Triptik,6 Rue du Triptik,-1.5330858849292897,48.14193784546948,1700,Oui,Administratif
+6,35001,Acigné,Ecole de musique,12 Rue de Calais,-1.5347050192702687,48.13254028946765,475,Oui,Scolaire
+7,35001,Acigné,Complexe sportif du Chèvre + Multi-accueil Chrysalide,Rue Saint-Exupéry,-1.5398980488206235,48.135969238468604,3320,Oui,Sportif
+8,35001,Acigné,Centre technique municipal,11 Joval,-1.5178307977041148,48.13504624414585,1600,Non,Administratif
+9,35001,Acigné,Ferme de la Motte,58 Rue du Fort de la Motte,-1.526925069348618,48.13194410340653,240,Non,Scolaire
+10,35001,Acigné,EPHAD,2 Rue Germaine Tillion,-1.5283097692757388,48.14119546889913,3900,Oui,Sanitaire
+11,35001,Acigné,Vestiaires de rugby,Rue des Verdaudais,-1.5342747773064997,48.14165680684592,291,Non,Sportif
+12,35139,Laillé,"Salle des sports, Haut Patis",12 Rue du Stade,-1.7150277771343,47.982655453554,1800,Non,Sportif
+13,35139,Laillé,Le Point 21,21 Rue du Point du Jour,-1.7170939,47.9784058,1600,Oui,Culturel
+14,35139,Laillé,Groupe Scolaire / ALSH,23 Rue du Parc,-1.7198736,47.9807299,3210,Oui,Scolaire
+15,35139,Laillé,Crèche Halte Garderie,1 Allée du Château Noble,-1.7211936,47.9779754,270,Non,Scolaire
+16,35139,Laillé,Mairie,Rue de la Halte,-1.7214672,47.9787589,400,Non,Administratif
+17,35139,Laillé,Restaurant scolaire,3 Rue du Patis,-1.7157448,47.9795322,927,Oui,Scolaire
+18,35139,Laillé,Complexe l'Archipel,2 Boulevard du Commandant Cousteau,-1.718013,47.9825655,3499,Non,Sportif
+19,35139,Laillé,Services Techniques + Salle Polyvalente,39 Rue de la Halte,-1.7317803,47.9795644,1400,Non,Administratif
